@@ -1,5 +1,10 @@
 # Phone Audio Connector
 
+> [!WARNING]
+> **Only download from the [Releases page](https://github.com/ahmetmaruferdogan/phone-audio-connector/releases/latest) of this repository.** Copies anywhere else may be fake and contain malware. The real app never asks for administrator rights. See [How to spot a fake copy](#how-to-spot-a-fake-copy).
+>
+> **Windows will probably warn you the first time you open it** ("Windows protected your PC"). That's expected, because the app isn't code-signed. See [what to do](#windows-protected-your-pc).
+
 [![Build](https://github.com/ahmetmaruferdogan/phone-audio-connector/actions/workflows/build.yml/badge.svg)](https://github.com/ahmetmaruferdogan/phone-audio-connector/actions/workflows/build.yml)
 
 Play your phone's audio on your Windows PC over Bluetooth.
@@ -8,11 +13,6 @@ Your PC acts as a Bluetooth speaker (A2DP sink). Music, videos and calls from yo
 
 > [!IMPORTANT]
 > **Pair your phone with Windows first.** This app does not pair devices. It only connects to phones that are already paired in Windows. If your phone isn't paired, it won't show up in the list.
-
-> [!WARNING]
-> **Only download from the [Releases page](https://github.com/ahmetmaruferdogan/phone-audio-connector/releases/latest) of this repository.** Copies anywhere else may be fake and contain malware. The real app never asks for administrator rights. See [How to spot a fake copy](#how-to-spot-a-fake-copy).
->
-> **Windows will probably warn you the first time you open it** ("Windows protected your PC"). That's expected, because the app isn't code-signed. See [what to do](#windows-protected-your-pc).
 
 ## Screenshots
 
