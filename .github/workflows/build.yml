@@ -44,11 +44,19 @@ jobs:
             Compress-Archive -Path "publish/$rid/*" -DestinationPath "PhoneAudioConnector-$rid.zip" -Force
           }
 
+          # Checksums so users can check their download is the real one.
+          Get-FileHash PhoneAudioConnector-*.zip -Algorithm SHA256 |
+            ForEach-Object { "$($_.Hash.ToLower())  $(Split-Path $_.Path -Leaf)" } |
+            Set-Content SHA256SUMS.txt -Encoding ascii
+          Get-Content SHA256SUMS.txt
+
       - name: Upload build files
         uses: actions/upload-artifact@v4
         with:
           name: PhoneAudioConnector
-          path: PhoneAudioConnector-*.zip
+          path: |
+            PhoneAudioConnector-*.zip
+            SHA256SUMS.txt
 
   # Only runs when you push a tag like v1.0.0. Never runs for pull requests.
   release:
@@ -66,5 +74,7 @@ jobs:
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
-          files: PhoneAudioConnector-*.zip
+          files: |
+            PhoneAudioConnector-*.zip
+            SHA256SUMS.txt
           generate_release_notes: true

@@ -9,6 +9,11 @@ Your PC acts as a Bluetooth speaker (A2DP sink). Music, videos and calls from yo
 > [!IMPORTANT]
 > **Pair your phone with Windows first.** This app does not pair devices. It only connects to phones that are already paired in Windows. If your phone isn't paired, it won't show up in the list.
 
+> [!WARNING]
+> **Only download from the [Releases page](https://github.com/ahmetmaruferdogan/phone-audio-connector/releases/latest) of this repository.** Copies anywhere else may be fake and contain malware. The real app never asks for administrator rights. See [How to spot a fake copy](#how-to-spot-a-fake-copy).
+>
+> **Windows will probably warn you the first time you open it** ("Windows protected your PC"). That's expected, because the app isn't code-signed. See [what to do](#windows-protected-your-pc).
+
 ## Screenshots
 
 | Dark theme | Light theme |
@@ -30,19 +35,62 @@ I was fed up with the alternatives. They were unreliable, missing features, or d
 
 ## Download
 
-Get the latest `.zip` from the [Releases](https://github.com/ahmetmaruferdogan/phone-audio-connector/releases/latest) page:
+> [!WARNING]
+> **Only download from this repository's [Releases page](https://github.com/ahmetmaruferdogan/phone-audio-connector/releases/latest).**
+> Copies on other websites, file-sharing links, YouTube descriptions or ads may be fake and contain malware.
 
-- `PhoneAudioConnector-win-x64.zip` for most PCs.
-- `PhoneAudioConnector-win-arm64.zip` for ARM PCs (for example, Snapdragon laptops).
+1. Open the [latest release](https://github.com/ahmetmaruferdogan/phone-audio-connector/releases/latest).
+2. Under **Assets**, download the right file for your PC:
+   - `PhoneAudioConnector-win-x64.zip` for most PCs (Intel or AMD).
+   - `PhoneAudioConnector-win-arm64.zip` for ARM PCs (for example, Snapdragon laptops).
 
-Unzip it and run `PhoneAudioConnector.exe`. You don't need to install .NET.
+   Not sure? Open **Settings > System > About** and look at **System type**. "x64" means the first file, "ARM-based" means the second.
+3. Right-click the .zip and choose **Extract All**.
+4. Open the extracted folder and double-click `PhoneAudioConnector.exe`.
+
+You don't need to install anything else. .NET is included.
+
+### "Windows protected your PC"
+
+The first time you open the app, Windows may show a blue box like this:
+
+> **Windows protected your PC**
+> Microsoft Defender SmartScreen prevented an unrecognized app from starting.
+> App: PhoneAudioConnector.exe
+> Publisher: Unknown publisher
+
+This happens because the app isn't code-signed. Signing costs money, and this is a free project. It doesn't mean the app is harmful.
+
+To open it:
+
+1. Click **More info**.
+2. Check that **App** says `PhoneAudioConnector.exe`.
+3. Click **Run anyway**.
+
+You only need to do this once.
+
+### How to spot a fake copy
+
+The real app:
+
+- Comes only as a `.zip` from the Releases page above. Never as an installer (`.msi` or `setup.exe`), and never in a `.rar` or `.7z` file.
+- **Never asks for administrator rights.** If a "Do you want to allow this app to make changes to your device?" box appears, click **No** and delete the file. It's not the real app.
+- Never asks you to turn off your antivirus.
+- Doesn't use the internet.
+
+To be sure your file is the real one, compare its checksum with `SHA256SUMS.txt` on the release page. In PowerShell, run this in your Downloads folder:
+
+```
+Get-FileHash .\PhoneAudioConnector-win-x64.zip
+```
+
+The `Hash` must match the line for that file in `SHA256SUMS.txt` (upper or lower case doesn't matter). If it doesn't match, delete the file.
 
 ## Requirements
 
 - Windows 10 version 2004 (build 19041) or newer, or Windows 11.
 - A Bluetooth adapter.
 - Your phone **paired with Windows** (see below).
-- [.NET 10 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/10.0), unless you use the self-contained build.
 
 ## Step 1: Pair your phone with Windows
 
@@ -67,10 +115,6 @@ Your phone should now be listed under **Bluetooth & devices**.
 - If it was paired before but still doesn't show, remove it in **Bluetooth & devices** and pair it again.
 
 If a device shows **Error**, check that Bluetooth is on and that apps are allowed to use it in Windows privacy settings.
-
-## Windows SmartScreen warning
-
-If the release is not code-signed, Windows may show "Windows protected your PC" the first time you run it. Click **More info**, then **Run anyway**. Only do this if you downloaded the app from this repository's Releases page.
 
 ## Build
 
@@ -113,7 +157,7 @@ git tag v1.1.0
 git push origin v1.1.0
 ```
 
-GitHub builds the x64 and ARM64 .zip files and attaches them to a new release.
+GitHub builds the x64 and ARM64 .zip files and `SHA256SUMS.txt`, and attaches them to a new release.
 
 ## Command-line options
 
