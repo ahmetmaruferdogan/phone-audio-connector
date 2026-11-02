@@ -1,0 +1,30 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+publish/
+artifacts/
+*.binlog
+
+# Local NuGet package cache (see nuget.config)
+.nuget-packages/
+
+# IDE files
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.rsuser
+*.DotSettings.user
+*.sln.iml
+
+# Signing certificates and keys: never commit these
+*.pfx
+*.p12
+*.snk
+*.cer
+
+# Logs
+*.log

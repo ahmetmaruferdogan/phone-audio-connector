@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+        <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+        <UseWindowsForms>true</UseWindowsForms>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>PhoneAudioConnector</RootNamespace>
+        <AssemblyName>PhoneAudioConnector</AssemblyName>
+        <ApplicationIcon>app.ico</ApplicationIcon>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+        <Version>1.0.0</Version>
+        <Product>Phone Audio Connector</Product>
+        <Description>Plays phone audio on your PC over Bluetooth (A2DP sink).</Description>
+        <Authors>Ahmet Maruf Erdoğan</Authors>
+        <Copyright>Copyright (c) 2026 Ahmet Maruf Erdoğan</Copyright>
+        <RepositoryUrl>https://github.com/ahmetmaruferdogan/phone-audio-connector</RepositoryUrl>
+    </PropertyGroup>
+
+</Project>
